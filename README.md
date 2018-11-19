@@ -1,5 +1,5 @@
 # Aplikacja FLASHLIGHT
-czyli **Informatyczna latarka**
+czyli **Informatyczna latarka** :bulb: 
 
 Zadanie rekrutacyjne do koła Solvro działającego na Politechnice Wrocławskiej.
 
