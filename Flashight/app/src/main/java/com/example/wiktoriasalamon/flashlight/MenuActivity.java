@@ -16,7 +16,9 @@ public class MenuActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_menu);
+
     mode = 1;
+
     configureButton();
     configureRadioGroup();
 
@@ -27,7 +29,6 @@ public class MenuActivity extends AppCompatActivity {
     button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-
         Intent intent = new Intent(MenuActivity.this, FlashlightActivity.class);
         intent.putExtra("mode",mode);
         startActivity(intent);
@@ -35,6 +36,9 @@ public class MenuActivity extends AppCompatActivity {
     });
   }
 
+  /**
+   * Zmienia wartość mode w zależności od wybranego trybu zamiany
+   */
   private void configureRadioGroup() {
     RadioGroup radioGroup = findViewById(R.id.radioGroup);
     radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

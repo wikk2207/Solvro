@@ -4,14 +4,19 @@ import java.util.Random;
 
 /**
  * Klasa Hexadecimal generuje i przechowuje losowa liczbe szesnastkową z zakresu 0-FF (0-255).
+ * Pozwala również porównywać dwie liczby zapisane w jednym z dwóch systemów - dziesiętnym i szesnatkowym.
  */
 public class Hexadecimal {
   private int decimal;
   private String hexadecimal;
 
-  Hexadecimal() {
+  /**
+   * Tworzy nową liczbę losując ją w zadanym zakresie.
+   * @param range Zakres losowania.
+   */
+  Hexadecimal(int range) {
     Random random = new Random();
-    decimal = random.nextInt(256);
+    decimal = random.nextInt(range);
     hexadecimal = convertDecToHex(decimal);
   }
 
@@ -61,10 +66,6 @@ public class Hexadecimal {
     return result;
   }
 
-  public int getDecimal() {
-    return decimal;
-  }
-
   public String getDecimalString() {
     return Integer.toString(decimal);
   }
@@ -73,12 +74,23 @@ public class Hexadecimal {
     return hexadecimal;
   }
 
+  /**
+   * Sprawdza czy podana w funkcji liczba jest równa liczbie zapisanej w obiekcie.
+   * @param number Liczba do porównania.
+   * @param mode 1 - liczba do porównania jest w systemie dziesiętnym.
+   *             2 - liczba do porównania jest w systemie szesnastkowym.
+   * @return Czy liczby są sobie równe.
+   */
   public boolean numberEquals (String number, int mode) {
     if (mode == 1) {
-      int numberInt = Integer.parseInt(number);
-      if(numberInt == decimal) {
-        return true;
-      } else {
+      try {
+        int numberInt = Integer.parseInt(number);
+        if(numberInt == decimal) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (NumberFormatException e) {
         return false;
       }
     } else {
