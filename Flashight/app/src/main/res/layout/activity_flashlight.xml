@@ -25,7 +25,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp" />
 
-
         <TextView
             android:id="@+id/textView_numberToConvert"
             android:layout_width="206dp"
@@ -47,7 +46,8 @@
             android:foregroundGravity="center"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/textView_numberToConvert"
-            tools:layout_editor_absoluteX="92dp" />
+            tools:layout_editor_absoluteX="92dp"
+            android:inputType="text"/>
 
         <Button
             android:id="@+id/checkButton"
@@ -66,7 +66,7 @@
             android:layout_height="94dp"
             android:layout_marginBottom="104dp"
             android:gravity="center"
-            android:text="0"
+            android:text=""
             android:textSize="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="133dp" />
